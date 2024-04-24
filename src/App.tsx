@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const Square = ({n} : {n : number}) => <>{n*n}<br/></>
+const OnlyEven = ({arr} : {arr: number[]}) => <>{arr.filter(n => n % 2 === 0).join(', ')}<br/></>
+const Temperature = ({t} : {t:number}) => <div style={t > 0 ? {color : "red"} : {color : "blue"}}>{t}<br/></div>
+
+const toggleColor = (event : React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const currentColor = (event.target as HTMLButtonElement).style.backgroundColor;
+    (event.target as HTMLButtonElement).style.backgroundColor = currentColor === 'red' ? 'green' : 'red';
 }
+
+function App() {
+    return (
+        <div className="App">
+            <Square n={3}/>
+            <OnlyEven arr={[14, 5, 6, 12, 21, 2]}/>
+            <Temperature t={8}/>
+            <button onClick={toggleColor}>
+                Click on me!
+            </button>
+        </div>
+    );
+}
+
 
 export default App;
