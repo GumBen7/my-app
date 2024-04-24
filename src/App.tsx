@@ -16,7 +16,7 @@ function App() {
             <Square n={3}/>
             <OnlyEven arr={[14, 5, 6, 12, 21, 2]}/>
             <Temperature t={8}/>
-            <button onClick={toggleColor}>
+            <button onClick={toggleColor} style={{backgroundColor: 'red'}}>
                 Click on me!
             </button>
         </div>
